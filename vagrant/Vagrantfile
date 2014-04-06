@@ -16,4 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     if Vagrant.has_plugin?("vagrant-vbguest") then
         config.vbguest.auto_update = false
     end
+
+    config.vm.provision :shell,
+        :path => "provision.sh"
 end
