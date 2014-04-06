@@ -19,4 +19,4 @@ EXPOSE 80
 
 # USER www-data
 
-CMD sh nginx.sh
+CMD nginx.sh
