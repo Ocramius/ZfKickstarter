@@ -5,6 +5,7 @@ docker kill NGINX
 docker kill HHVM
 docker rm HHVM
 docker rm NGINX
+docker rm APPLICATIONDATA
 docker rmi hhvm
 docker rmi nginx
 
@@ -13,5 +14,6 @@ docker build -t hhvm HHVM
 docker build -t nginx NGINX
 
 # run the containers
-docker run -d --name HHVM hhvm
-docker run -d -p 11000:80 --name NGINX --link HHVM:PHP nginx
+docker run -v $(pwd)/../application:/application --name APPLICATIONDATA busybox true
+docker run -d --volumes-from APPLICATIONDATA --name HHVM hhvm
+docker run -d -t -p 11000:80 --name NGINX --link HHVM:PHP nginx
