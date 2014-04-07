@@ -15,5 +15,6 @@ docker build -t nginx NGINX
 
 # run the containers
 docker run -v $(pwd)/../application:/application --name APPLICATIONDATA busybox true
+docker run -i -t --volumes-from APPLICATIONDATA hhvm sh -c "cd /application && ./run-composer-installation.sh"
 docker run -d --volumes-from APPLICATIONDATA --name HHVM hhvm
 docker run -d -t -p 11000:80 --name NGINX --link HHVM:PHP nginx
