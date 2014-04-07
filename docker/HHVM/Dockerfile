@@ -10,7 +10,7 @@ RUN echo deb http://dl.hhvm.com/ubuntu saucy main | sudo tee /etc/apt/sources.li
 RUN sudo apt-get update
 RUN sudo apt-get install -y hhvm
 
-ADD foobar.php foobar.php
+#ADD foobar.php foobar.php
 
 EXPOSE 9000
 EXPOSE 9001
