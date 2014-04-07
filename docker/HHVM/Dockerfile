@@ -17,5 +17,5 @@ EXPOSE 9001
 
 # USER hhvm
 
-WORKDIR /application/public
+#WORKDIR /application/public
 CMD hhvm --mode server -vServer.Type=fastcgi -vServer.Port=9000 -vAdminServer.Port=9001
